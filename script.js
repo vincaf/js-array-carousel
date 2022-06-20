@@ -19,12 +19,39 @@ for (let i = 0; i < 6; i++) {
     // aggiunta del contenuto nell'attributo
     newImg.setAttribute('src', images[i]);
 
-    // scrittura in pagina
-    imgWrapper.append(newImg);
-
     if(i===0){
         newImg.classList.add('ms_active');
-    } else {
-        newImg.classList.add('d-none');
     }
+
+    // scrittura in pagina
+    imgWrapper.append(newImg);
 }
+
+// Inizializzazione variabile per i figli del wrapper e per contatore active
+const imgList = imgWrapper.children;
+let activeElementIndex=0;
+
+// aggiunta della classe active sull'elemento attuale
+imgList[activeElementIndex].classList.add('ms_active');
+
+// quando clicco sul buttone nascondere l'immagine attuale e mostrare la successiva
+const btnNext = document.getElementById('next-button');
+btnNext.addEventListener('click', function(){
+    // rimuovi active a immagine attuale
+    imgList[activeElementIndex].classList.remove('ms_active');
+    // incrementa indice
+    activeElementIndex++;
+    // aggiungi active all'immagine successiva
+    imgList[activeElementIndex].classList.add('ms_active');
+})
+
+// quando clicco sul buttone nascondere l'immagine attuale e mostrare la precedente
+const btnPrev = document.getElementById('prev-button');
+btnPrev.addEventListener('click', function(){
+    // rimuovi active a immagine attuale
+    imgList[activeElementIndex].classList.remove('ms_active');
+    // decrementa indice
+    activeElementIndex--;
+    // aggiungi active all'immagine successiva
+    imgList[activeElementIndex].classList.add('ms_active');
+})

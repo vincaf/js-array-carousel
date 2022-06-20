@@ -3,9 +3,10 @@
     width: 100%;
     height: 70vh;
     object-fit: cover;
+    display: none;
 }
 
 /* Classe di attivazione in display dell'immagine */
-.ms_active{
+img.ms_active{
     display: block;
 }
