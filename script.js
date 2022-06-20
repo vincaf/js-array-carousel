@@ -21,4 +21,10 @@ for (let i = 0; i < 6; i++) {
 
     // scrittura in pagina
     imgWrapper.append(newImg);
+
+    if(i===0){
+        newImg.classList.add('ms_active');
+    } else {
+        newImg.classList.add('d-none');
+    }
 }
