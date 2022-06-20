@@ -41,6 +41,10 @@ btnNext.addEventListener('click', function(){
     imgList[activeElementIndex].classList.remove('ms_active');
     // incrementa indice
     activeElementIndex++;
+    // quando arrivi alla fine dell'array ricomincia dal primo elemento
+    if(activeElementIndex === imgList.length){
+        activeElementIndex = 0;
+    }
     // aggiungi active all'immagine successiva
     imgList[activeElementIndex].classList.add('ms_active');
 })
@@ -52,6 +56,10 @@ btnPrev.addEventListener('click', function(){
     imgList[activeElementIndex].classList.remove('ms_active');
     // decrementa indice
     activeElementIndex--;
+    // quando arrivi alla fine dell'array ricomincia dal primo elemento
+    if(activeElementIndex < 0){
+        activeElementIndex = imgList.length - 1;
+    }
     // aggiungi active all'immagine successiva
     imgList[activeElementIndex].classList.add('ms_active');
 })
